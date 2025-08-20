@@ -1,0 +1,125 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --primary-button-bg: #4a90e2;
+  --primary-button-hover-bg: #357bd8;
+  --secondary-button-bg: #a0a0a0;
+  --secondary-button-hover-bg: #8c8c8c;
+  --border-color: #e0e0e0;
+  --card-bg: #f5f5f5;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+    --primary-button-bg: #6a9ee8;
+    --primary-button-hover-bg: #558ad2;
+    --secondary-button-bg: #505050;
+    --secondary-button-hover-bg: #6a6a6a;
+    --border-color: #333333;
+    --card-bg: #1a1a1a;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', sans-serif; /* Using a more modern font */
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif; /* Different font for headings */
+  margin-bottom: 0.5em;
+  color: var(--foreground);
+}
+
+/* General button styling */
+button {
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+  border: none;
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+/* Specific button styles (can be applied via Tailwind classes or direct CSS) */
+.btn-primary {
+  background-color: var(--primary-button-bg);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-button-hover-bg);
+}
+
+.btn-secondary {
+  background-color: var(--secondary-button-bg);
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: var(--secondary-button-hover-bg);
+}
+
+/* Input field styling */
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"] {
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.375rem;
+  background-color: var(--card-bg);
+  color: var(--foreground);
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease-in-out;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+  border-color: var(--primary-button-bg);
+  outline: none;
+}
+
+/* Card-like containers */
+.card {
+  background-color: var(--card-bg);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--border-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .p-24 {
+    padding: 1.5rem;
+  }
+
+  .text-4xl {
+    font-size: 2.5rem;
+  }
+
+  .w-full.max-w-xs {
+    max-width: 100%;
+  }
+}
